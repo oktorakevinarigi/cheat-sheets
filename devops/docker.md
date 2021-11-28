@@ -1,7 +1,25 @@
 # Docker Cheat-Sheet
-## Code Example
+## Command Line
 COMMAND | DESCRIPTION
 ---|---
+`docker images` | Melihat list image
+`docker pull NAME_IMAGE:VERSION` | Download image dari docker hub
+`docker container ls` or `docker ps` | Melihat list container yang running
+`docker container ls --all` or `docker ps -a` | Melihat list container yang running dan tidak running
+`docker container stop ID_CONTAINER` or `docker stop ID_CONTAINER` | Menghentikan container
+`docker container rm ID_CONTAINER` or `docker rm ID_CONTAINER` | Menghapus container yg berhenti
+`docker image rm ID_IMAGE` | Menghapus image
+`docker build --tag NAME_IMAGE:VERSION .` | Build image
+`docker container create --name NAME_CONTAINER -p PORT_OUT:PORT_IMAGE NAME_IMAGE:VERSION` | Membuat container
+`docker tag NAME_IMAGE_LOCAL:VERSION NAME_IMAGE_NEW:VERSION` | Ganti nama tag
+`docker push NAME_IMAGE:VERSION` | Upload image ke docker hub
+`docker login` | Login docker kita dengan docker hub
+`docker container create --name NAME_CONTAINER -p PORT_OUT:PORT_IMAGE -e NAME_ENV=VALUE NAME_IMAGE:VERSION` | Membuat image dengan environment
+`docker container inspect NAME_CONTAINER` | Melihat detail info container
+`docker network create NAME_NETWORK` | Membuat network
+`docker network ls` | Melihat list network
+`docker network connect NAME_NETWORK NAME_CONTAINER` | Memasukkan container dalam sebuah network
+`docker system df` | Melihat semua info images dan container
 `docker build --tag NAME_IMAGE:1.0 .` | Build Image dengan Name, Tag, dan Versi
 `docker build -f NAME_FILE --tag NAME_IMAGE:1.0 .` | Build Image dengan Name Berbeda, Tag, dan Versi
 `docker run -p PORT_EXIT:PORT_CONTAINER -d NAME_IMAGE:1.0` | Run Image dengan, Port, Name dan Tag
