@@ -17,7 +17,7 @@ Symbol | DESCRIPTION
 `\D` | non-digit, semua karakter `bukan` angka
 `\s` | whitespace, karakter spasi termasuk dengan simbol `\n, \t, \r, \v, \f`
 `\S` | non-whitespace, karakter `bukan` spasi termasuk dengan simbol `\n, \t, \r, \v, \f`
-`|` | different possibilities, karakter atau untuk mencari beberapa kemungkinan
+<code>&#124;</code> | different possibilities, karakter atau untuk mencari beberapa kemungkinan
 
 ## Quantifiers
 Symbol | DESCRIPTION
@@ -46,7 +46,7 @@ Symbol | DESCRIPTION
 Symbol | DESCRIPTION
 ---|---
 `/abc/` | mencari kata `abc` yang identik dalam text
-`/cat|dog/` | mencari kata `cat` atau `dog` yang identik dalam text
+<code>/cat&#124;dog/</code> | mencari kata `cat` atau `dog` yang identik dalam text
 `/cat/i` | mencari kata `cat` tanpa memperdulikan huruf besar kecil
 
 ## Referensi
