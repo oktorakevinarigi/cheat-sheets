@@ -50,6 +50,6 @@ Symbol | DESCRIPTION
 `/cat/i` | mencari kata `cat` tanpa memperdulikan huruf besar kecil
 
 ## Referensi
-https://www.w3schools.com/jsref/jsref_obj_regexp.asp
-https://www.tutorialspoint.com/javascript/javascript_regexp_object.htm
-https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/#regular-expressions
+https://www.w3schools.com/jsref/jsref_obj_regexp.asp 
+https://www.tutorialspoint.com/javascript/javascript_regexp_object.htm 
+https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/#regular-expressions 
