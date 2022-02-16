@@ -47,7 +47,7 @@ Symbol | DESCRIPTION
 `()` | group yang ada dalam simbol `()`
 
 ## Examples
-Symbol | DESCRIPTION
+Regex | DESCRIPTION
 ---|---
 `/abc/` | mencari kata `abc` yang identik dalam text
 <code>/cat&#124;dog/</code> | mencari kata `cat` atau `dog` yang identik dalam text
