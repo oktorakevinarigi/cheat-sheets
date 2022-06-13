@@ -13,8 +13,12 @@ pipeline {
         }
         stage('Docker Down'){
             steps {
-                sh "TAG_VERSION=${BUILD_NUMBER - 1} docker compose down"
-                sh "docker image remove ${IMAGE_DOCKER}:${BUILD_NUMBER - 1} --force"
+                sh '''#!/bin/bash
+                    TAG_VERSION=$((BUILD_NUMBER-1)) docker compose down
+                '''
+                sh '''#!/bin/bash
+                    docker image remove ${IMAGE_DOCKER}:$((BUILD_NUMBER-1)) --force
+                '''
             }
         }
         stage('Build Docker'){
