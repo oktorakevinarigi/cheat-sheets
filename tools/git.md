@@ -71,6 +71,7 @@ COMMAND | DESCRIPTION
 `git push origin --tags` | Push tag
 `git fetch origin` | Mensinkronkan branch yang ada di cloud
 `git push -u origin BRANCH_NAME` | Upload perubahan local ke cloud
+`git checkout --track origin/BRANCH_NAME` | Menarik branch di cloud
 
 ## Alias (Optional)
 membuat command line alias atau mempersingkat command

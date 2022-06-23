@@ -25,6 +25,11 @@ COMMAND | DESCRIPTION
 `timedatectl` | Melihat time server
 `timedatectl list-timezones` | Melihat zona waktu
 `sudo timedatectl set-timezone TIMEZONE` | Melihat zona waktu
+`sudo groupadd NAME_GROUP` | Membuat group
+`sudo usermod -aG NAME_GROUP ${USER}` | Memasukkan pengguna saat ini kedalam group
+`compgen -g` | Melihat semu group
+`df -h` | Cek space disk
+`lsb_realese -a` or `hostnamectl` | Melihat OS atau distro
 
 ## Application
 COMMAND | DESCRIPTION
