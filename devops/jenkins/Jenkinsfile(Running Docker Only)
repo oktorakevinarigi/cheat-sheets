@@ -1,0 +1,46 @@
+pipeline {
+    agent any
+    environment {
+        URL_PUBLISH = 'URL DOMAIN'
+        IMAGE_DOCKER = "${IMAGE}"
+        CHANNEL_SLACK = 'CHANNEL'
+    }
+    stages {
+        stage('Docker Down'){
+            steps {
+                sh '''#!/bin/bash
+                    IMAGE=${IMAGE_DOCKER} docker compose down
+                '''
+                sh '''#!/bin/bash
+                    docker image remove ${MIB_BE_IMAGE} --force
+                '''
+            }
+        }
+        stage('Docker UP'){
+            steps {
+                sh "IMAGE=${IMAGE_DOCKER} docker compose up -d"
+                sh 'docker image prune -a -f'
+            }
+        }
+    }
+
+    post {
+        always {
+            sh 'echo "Post build stage"'
+        }
+
+        success {
+            echo 'I succeeded!'
+            slackSend channel: "${CHANNEL_SLACK}", color: 'good', message: "${URL_PUBLISH} deploy SUCCESS"
+        }
+
+        unstable {
+            echo 'I am unstable :('
+        }
+
+        failure {
+            echo 'I failed :(('
+            slackSend channel: "${CHANNEL_SLACK}", color: 'danger', message: "${URL_PUBLISH} deploy FAILED"
+        }
+    }
+}

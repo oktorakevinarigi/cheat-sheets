@@ -9,5 +9,5 @@ COMMAND | DESCRIPTION
 ## Command Line Example
 COMMAND | DESCRIPTION
 ---|---
-`mongodump -d NAME_DB -u USERNAME -p PASSWORD - authenticationDatabase=admin --out /PATH` | Backup DB with Auth
-`mongorestore -d NAME_DB -u USERNAME -p PASSWORD  - authenticationDatabase=admin /PATH --drop` | Restore DB with Auth
+`mongodump -d NAME_DB -u USERNAME -p PASSWORD --authenticationDatabase=admin --out /PATH` | Backup DB with Auth
+`mongorestore -d NAME_DB -u USERNAME -p PASSWORD  --authenticationDatabase=admin /PATH --drop` | Restore DB with Auth

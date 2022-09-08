@@ -1,0 +1,17 @@
+stages:
+  - build
+
+build:
+  image: docker:latest
+  stage: build
+  services:
+    - docker:dind
+  before_script:
+    - echo $CI_BUILD_TOKEN | docker login -u "$CI_REGISTRY_USER" --password-stdin $CI_REGISTRY
+    - apk add --update curl && rm -rf /var/cache/apk/*
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE" .
+    - docker push "$CI_REGISTRY_IMAGE"
+    - curl -I -u $URL_REMOTE_JENKINS
+  only:
+    - dev
