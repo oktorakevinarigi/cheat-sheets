@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  DOCKER_IMAGE:
+    image: DOCKER_IMAGE:${TAG_VERSION}
+    container_name: DOCKER_IMAGE
+    build: .
+    restart: always
+    ports:
+      - "3001:3000"
