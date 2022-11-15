@@ -37,6 +37,10 @@ COMMAND | DESCRIPTION
 `git checkout HASH` | Pindah pada commit tertentu dengan keadaan semua file pada hash tersebut
 `git revert HASH` | Mengembalikkan keaadaan file awal pada commit tertentu dan membuat commit baru
 `git blame FILE_NAME` | Melihat detail file (HASH, Author, Date, Nama Commit)
+`git switch BRANCH_NAME` | Berpindah ke branch lain
+`git switch -c NEW_BRANCH_NAME` | Membuat branch baru dari branch sekarang
+`git restore --staged *` | Membatalkan semua file yg sudah ada dalam staged
+`git restore *` | Membatalkan semua file yg berubah
 
 ## Command Line BRANCH
 COMMAND | DESCRIPTION
@@ -72,6 +76,7 @@ COMMAND | DESCRIPTION
 `git fetch origin` | Mensinkronkan branch yang ada di cloud
 `git push -u origin BRANCH_NAME` | Upload perubahan local ke cloud
 `git checkout --track origin/BRANCH_NAME` | Menarik branch di cloud
+`git remote update origin --prune` | Update branch origin local and delete yg tidak ada di cloud
 
 ## Alias (Optional)
 membuat command line alias atau mempersingkat command
