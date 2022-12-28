@@ -46,5 +46,8 @@ mkdir -p /usr/local/lib/docker/cli-plugins
 curl -SL https://github.com/docker/compose/releases/download/v2.14.2/docker-compose-linux-x86_64 -o /usr/local/lib/docker/cli-plugins/docker-compose
 `
 
+link referensi install
+https://docs.docker.com/compose/install/linux/
+
 ## Referensi
 https://github.com/xcad2k/cheat-sheets/blob/main/devops/docker.md
