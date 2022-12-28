@@ -10,8 +10,8 @@ services:
       - "8080:8080"
       - "50000:50000"
     volumes:
-      - "/root/jenkins/data:/var/jenkins_home"
-      - "/root/jenkins/log:/var/log"
+      - "./data/jenkins/data:/var/jenkins_home"
+      - "./data/jenkins/log:/var/log"
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "/usr/bin/docker:/usr/bin/docker"
       - "/usr/local/bin/docker-compose:/usr/bin/docker-compose"
