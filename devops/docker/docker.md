@@ -31,6 +31,7 @@ COMMAND | DESCRIPTION
 `docker image prune -f` | Remove Image Status `<none>`
 `docker rm $(docker ps -a -q -f status=exited)` | Remove Container Status Exit
 `docker container prune` | Remove Container Status Exit
+`sudo chmod 666 /var/run/docker.sock` | Memberikan akses, cth, jenkins
 ## Docker Compose
 COMMAND | DESCRIPTION
 ---|---
