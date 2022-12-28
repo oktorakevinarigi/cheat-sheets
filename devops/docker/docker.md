@@ -38,5 +38,13 @@ COMMAND | DESCRIPTION
 `docker-compose -f NAME_FILE up -d` | Run Docker Compose
 `docker-compose -f NAME_FILE down` | Stop Docker Compose
 
+## Script Other
+Runnig Docker Compose Global
+`
+DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+mkdir -p /usr/local/lib/docker/cli-plugins
+curl -SL https://github.com/docker/compose/releases/download/v2.14.2/docker-compose-linux-x86_64 -o /usr/local/lib/docker/cli-plugins/docker-compose
+`
+
 ## Referensi
 https://github.com/xcad2k/cheat-sheets/blob/main/devops/docker.md
