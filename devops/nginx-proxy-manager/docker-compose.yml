@@ -18,8 +18,10 @@ services:
       DB_MYSQL_PASSWORD: "npm"
       DB_MYSQL_NAME: "npm"
     volumes:
-      - ./data:/data
+      - ./data/nginx-manager:/data
       - ./letsencrypt:/etc/letsencrypt
+    networks:
+      - network-local
   db:
     container_name: mysql
     image: jc21/mariadb-aria:latest
@@ -31,3 +33,9 @@ services:
       MYSQL_PASSWORD: "npm"
     volumes:
       - ./data/mysql:/var/lib/mysql
+    networks:
+      - network-local
+
+networks:
+  network-local:
+    external: true

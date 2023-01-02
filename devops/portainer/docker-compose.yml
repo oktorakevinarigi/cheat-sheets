@@ -8,6 +8,12 @@ services:
     ports:
       - "9000:9000"
       - "8000:8000"
+    networks:
+      - network-local
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "./data/portainer:/data"
+
+networks:
+  network-local:
+    external: true
