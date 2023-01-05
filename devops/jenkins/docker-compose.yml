@@ -3,15 +3,21 @@ version: "3.7"
 services:
   jenkins:
     container_name: jenkins
-    image: jenkins/jenkins:lts-jdk11
+    image: jenkins
+    build: .
     user: root
+    privileged: true
     restart: always
     ports:
       - "8080:8080"
       - "50000:50000"
+    networks:
+      - network-local
     volumes:
       - "./data/jenkins/data:/var/jenkins_home"
       - "./data/jenkins/log:/var/log"
       - "/var/run/docker.sock:/var/run/docker.sock"
-      - "/usr/bin/docker:/usr/bin/docker"
-      - "/usr/local/bin/docker-compose:/usr/bin/docker-compose"
+
+networks:
+  network-local:
+    external: true
