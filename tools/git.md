@@ -77,6 +77,8 @@ COMMAND | DESCRIPTION
 `git push -u origin BRANCH_NAME` | Upload perubahan local ke cloud
 `git checkout --track origin/BRANCH_NAME` | Menarik branch di cloud
 `git remote update origin --prune` | Update branch origin local and delete yg tidak ada di cloud
+`git remote rm origin` | Menghapus url git
+`git remote add origin URL_GIT` | Menambah url git
 
 ## Alias (Optional)
 membuat command line alias atau mempersingkat command
