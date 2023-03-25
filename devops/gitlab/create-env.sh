@@ -7,7 +7,8 @@ count=$(echo -e "$ENV" | wc -l)
 touch .env
 
 # Melakukan perulangan sebanyak jumlah baris pada teks
-while [ 1 -le $count ]
+i=1
+while [ $i -le $count ]
 do
   line=$(echo "$ENV" | sed -n "${i}p")
   echo "$line" >> .env
