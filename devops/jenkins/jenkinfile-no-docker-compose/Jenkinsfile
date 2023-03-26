@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+    environment {
+        URL_PUBLISH = 'URL DOMAIN'
+        CONTAINER_NAME = "CONTAINER_NAME"
+        DOCKER_IMAGE = "DOCKER_IMAGE"
+        CHANNEL_SLACK = 'NAME_CHANNEL_SLACK'
+    }
+    stages {
+        stage('Docker Down'){
+            steps {
+                sh "docker rm -f ${CONTAINER_NAME}"
+                sh "docker rmi ${DOCKER_IMAGE} --force"
+            }
+        }
+        stage('Docker UP'){
+            steps {
+                sh "docker pull ${DOCKER_IMAGE}"
+                sh "docker run --name ${CONTAINER_NAME} -p 3000:3000 -d ${DOCKER_IMAGE}"
+                sh 'docker image prune -a -f'
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'always'
+        }
+
+        success {
+            echo 'success'
+            slackSend channel: "${CHANNEL_SLACK}", color: 'good', message: "${URL_PUBLISH} deploy SUCCESS"
+        }
+
+        unstable {
+            echo 'unstable'
+        }
+
+        failure {
+            echo 'failure'
+            slackSend channel: "${CHANNEL_SLACK}", color: 'danger', message: "${URL_PUBLISH} deploy FAILED"
+        }
+    }
+}
