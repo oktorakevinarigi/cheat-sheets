@@ -9,7 +9,7 @@ Type | DESCRIPTION
 `Pick<TYPE, KEYS>` | Semua `TYPE` yg ada tapi yang digunakan hanya dalam `KEY` saja
 `Partial<Pick<TYPE, KEYS>>` | Semua `TYPE` menjadi optional, dengan adanya `Pick` maka properti yg digunakan hanya  `KEYS` yg sudah di tentukan
 `Readonly<TYPE>` | Semua `TYPE` hanya dapat di baca saja. Contoh jika ada type `name` dengan value `string`, terus di assign dengan sebuah string terus jika terjadi override value maka akan error.
-`Exclude<UNION_TYPE, KEYS>` | Semua `UNION_TYPE` akan digunakan kecuali properti yg ada dalam `KEY`.
+`Exclude<TYPE, KEYS>` | Semua `TYPE` akan digunakan kecuali properti yg ada dalam `KEY`. `KEY` bisa berupa string atau object, tergantung jenis `TYPE` dan bisa juga berupa jenis tipe data.
 `Extract<TYPE, KEYS>` | Mencari `TYPE` sesuai yg ada dalam `KEY` dan mengektrak.
 `ReturnType<FUNCTION>` | Mendapatkan `TYPE` dari sebuah function yg memiliki return satu `TYPE`.
 `ReturnType<typeof FUNCTION>` | Mendapatkan `TYPE` dari sebuah function yg memiliki return `TYPE` berupa object.
