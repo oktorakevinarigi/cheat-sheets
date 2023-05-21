@@ -16,6 +16,8 @@ Property | DESCRIPTION
 `margin-left: auto` or `margin-right: auto` | mirip dengan `flex-grow`. Property margin hanya memposisikan component, bukan menambah `height` dan `width` seperti `flex-grow`. Hanya terjadi jika ada ruang kosong. Biasanya digunakan pada header yg memiliki logo sebelah dikiri dan selebalah kanan berupa menu.
 `flex-wrap` | jika ukuran anak melebihi ukuran induk maka dengan value `wrap` maka akan dipindah kebawah.
 `align-content` | digunakan jika ada component anak yang kebawah menggunakan `flex-wrap: wrap`, dan pengaturan semua anak bisa menggunakan `align-content`. [Contoh](https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/#wrapping-14)
+`z-index` | secara default property flexbox memiliki `z-index`, walaupun secara 
+eksplisit tidak menulisnya dan tidak mengatur `position: relative` or `position: absolute`
 
 ## Referensi
 [joshwcomeau](https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/)
