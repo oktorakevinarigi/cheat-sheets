@@ -1,0 +1,49 @@
+name: NAME_ACTION # Nama action yang ada di github
+
+on:
+  push:
+    branches:
+      - main # tigger github action by main branch
+
+env:
+  PROJECT_ID: ${{ secrets.CLOUD_RUN_PROJECT_NAME }} # Tetapkan variabel Secret Action di menu setting pada github. CLOUD_RUN_PROJECT_NAME ini id project di GCP
+  REGION: us-central1
+  # project-name but it can be anything you want
+  REPO_NAME: NAME_REPO # Tetapkan nama container image dan nama Cloud Run 
+
+jobs:
+  build-and-deploy:
+    name: Setup, Build, and Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # Authenticate with Google Cloud
+      - id: "auth"
+        uses: "google-github-actions/auth@v1"
+        with:
+          credentials_json: "${{ secrets.CLOUD_RUN_SERVICE_ACCOUNT }}" # Tetapkan variabel Secret Action di menu setting pada github. CLOUD_RUN_SERVICE_ACCOUNT merupakan credential IAM berupa base64
+
+      # Setup gcloud CLI/SDK
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v1
+
+      - name: Authorize Docker push
+        run: gcloud auth configure-docker
+
+      - name: Build and tag the docker image
+        run: |-
+          docker build . --tag gcr.io/$PROJECT_ID/$REPO_NAME:$GITHUB_SHA
+
+      - name: Push the image to the Google Container Registry (GCR)
+        run: |-
+          docker push gcr.io/$PROJECT_ID/$REPO_NAME:$GITHUB_SHA
+
+      - name: Deploy
+        run: |-
+          gcloud run deploy $REPO_NAME \
+          --region $REGION \
+          --image gcr.io/$PROJECT_ID/$REPO_NAME:$GITHUB_SHA \
+          --platform "managed" \
+          --quiet
