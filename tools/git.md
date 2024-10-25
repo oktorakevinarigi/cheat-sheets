@@ -79,6 +79,7 @@ COMMAND | DESCRIPTION
 `git remote update origin --prune` | Update branch origin local and delete yg tidak ada di cloud
 `git remote rm origin` | Menghapus url git
 `git remote add origin URL_GIT` | Menambah url git
+`git remote set-url origin URL_GIT` | Mengubah url git
 
 ## Alias (Optional)
 membuat command line alias atau mempersingkat command
